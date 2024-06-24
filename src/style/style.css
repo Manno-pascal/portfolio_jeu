@@ -1,0 +1,405 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+canvas {
+    height: 100vh;
+    width: 100vw;
+}
+
+#modalContainer {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#sign {
+    height: 90%;
+    width: 90%;
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../img/sign.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-size: 1.5vw;
+    z-index: 1000;
+}
+
+
+.signContent {
+    z-index: 999;
+    height: min-content;
+    max-height: 70%;
+    width: 70%;
+
+    font-weight: bolder;
+    font-style: normal;
+    display: none;
+    justify-content: space-around;
+    align-items: start;
+    overflow-y: auto;
+}
+
+.signContent p,
+.signContent a,
+.signContent a,
+.signContent h3,
+.signContent h2 {
+    margin: 0;
+
+}
+
+#Coordonnées>img {
+    max-width: 50%;
+    max-height: 100%;
+}
+
+#Projets>div>div {
+    margin-bottom: 10%;
+}
+
+
+#cross, #EECross {
+    position: absolute;
+    width: 5%;
+    top: 5%;
+    left: 5%;
+    z-index: 999;
+    border-radius: 50%;
+}
+
+#cross:hover, #EECross:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#easterEggs{
+    height: 90%;
+    width: 90%;
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+#mainMenu {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../video/video0000-0200\(4\).gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#mainMenu h2,
+#mainMenu h3 {
+    margin: 2% 0 0 0;
+}
+
+#menuContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#menuContent {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-color: rgba(128, 128, 128, 0.322);
+}
+
+.menuButtons {
+    width: 20%;
+    cursor: pointer;
+}
+
+.menuButtons:hover {
+    filter: sepia(40%) saturate(200%) drop-shadow(0 0 1rem rgb(253, 156, 0));
+}
+
+#desktopKeys>div {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#desktopKeys>div>div {
+    text-align: center;
+    width: 20%;
+    height: 100%;
+}
+
+#phoneKeys>div {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#phoneKeys>div>div {
+    text-align: center;
+    width: 15%;
+    height: 100%;
+}
+
+#keysInfos img {
+    width: 100%;
+}
+
+#infoBubble {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #deb887;
+    color: #000000;
+    padding: 2px;
+    border: 2px solid #8b4513;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 18px;
+    font-family: "Amatic SC", sans-serif;
+    font-weight: bolder;
+    font-style: normal;
+}
+
+.hidden {
+    display: none;
+}
+
+#topBanner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    max-height: 30px;
+    font-size: 100%;
+    background-color: #000000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    padding: 2px;
+}
+
+.button {
+    display: inline-block;
+    padding: 0.2rem;
+    font-size: 0.7rem;
+    max-height: 100%;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #deb887;
+    color: #000000;
+    padding: 2px;
+    border: 2px solid #8b4513;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #d8a159;
+}
+
+.button:active {
+    background-color: #deb887c1;
+}
+
+#phoneButtons {
+    color: white;
+    z-index: 998;
+}
+
+#phoneButtons p {
+    margin: 0;
+}
+
+.movingButton,
+.cameraButton {
+    width: 5vw;
+    height: 5vw;
+    margin: 3px;
+}
+
+#movingButtons {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#movingSubButtons {
+    display: flex;
+}
+
+#cameraButtons>div {
+    display: flex;
+    bottom: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cameraButtons {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#loadingScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    display: none;
+    justify-content: start;
+    align-items: center;
+    z-index: 999;
+    text-align: center;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+#loadingText {
+    color: white;
+    width: 100%;
+    height: 80%;
+    padding: 0 5% 0 5%;
+    overflow-y: auto;
+}
+
+#loadingBarContainer {
+    width: 50%;
+    background: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#loadingBar {
+    height: 20px;
+    width: 0%;
+    background-color: #4caf50;
+    transition: transform 0.5s ease;
+}
+
+#spinner {
+    width: 20px;
+    height: 20px;
+    border: 5px solid #333;
+    border-top-color: #4caf50;
+
+    border-radius: 80%;
+    animation: spin 1s infinite linear;
+    margin-right: 10px;
+}
+
+#loadingProgress {
+    display: flex;
+    position: absolute;
+    bottom: 5%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#loadingButton {
+    position: absolute;
+    bottom: 5%;
+    display: none;
+    width: 20%;
+    cursor: pointer;
+}
+
+#loadingButton:hover {
+    filter: sepia(40%) saturate(200%) drop-shadow(0 0 1rem rgb(253, 156, 0));
+}
+
+.selected {
+    filter: sepia(40%) saturate(200%) drop-shadow(0 0 1rem rgb(253, 156, 0));
+}
+
+.landscape-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 24px;
+    text-align: center;
+}
+
+.message-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #333;
+    border-radius: 10px;
+}
+
+/* * {
+    touch-action: none;
+} */
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+}
+
+
+@media screen and (orientation: portrait) {
+    .landscape-message {
+        display: flex;
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+}

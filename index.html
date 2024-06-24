@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dev's Adventure</title>
+  <link rel="stylesheet" href="src/style/style.css">
+  <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.165/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.165/examples/jsm/"
+          }
+        }
+  </script>
+  <!-- sign image from https://www.freeiconspng.com/img/5725 -->
+  <!-- signs models from https://sketchfab.com/3d-models/stylized-wood-signs-d529ec8478304d45a5048e15cf9cc9db -->
+  <!-- camp and trees 3d models from https://sketchfab.com/3d-models/camping-buscraft-ambience-7b65e4df95c3492fbf4e0641e3b472c1 -->
+  <!-- radio 3d model from https://sketchfab.com/3d-models/vintage-radio-e2b64f5031fa45e8be661a89baeae3f0 -->
+  <!-- phone model from https://sketchfab.com/3d-models/old-phone-low-poly-be46f146812142569ff28a1334d14e3e -->
+  <!-- hammock from https://sketchfab.com/3d-models/hammock-from-poly-by-google-207d1a882f0d406c92ee5d4dc522b7c8 -->
+  <!-- telescope from https://sketchfab.com/3d-models/simple-low-poly-telescope-0671f56d0c0f482ea20d03ec52128662 -->
+  <!-- television from https://sketchfab.com/3d-models/sony-tv8-301-portable-television-cb4a57ad53b9490f8d9d594a94bd92ce -->
+</head>
+
+<body>
+  <div class="landscape-message">
+    <div class="message-box">
+      <p>Veuillez retourner votre téléphone en mode paysage pour une meilleure expérience.</p>
+    </div>
+  </div>
+  <div id="mainMenu">
+    <div id="menuContent">
+      <img src="./src/img/startButton.png" id="startButton" class="menuButtons" alt="">
+
+      <div id="graphism">
+        <h2>Niveau graphisme</h2>
+        <div>
+          <img src="./src/img/potato.png" id="potato" class="menuButtons configButtons" alt="">
+          <img src="./src/img/low.png" id="low" class="menuButtons configButtons selected" alt="">
+          <img src="./src/img/medium.png" id="medium" class="menuButtons configButtons" alt="">
+          <img src="./src/img/high.png" id="high" class="menuButtons configButtons" alt="">
+        </div>
+      </div>
+
+      <div id="keysInfos">
+        <div id="desktopKeys" class="hidden">
+          <h2>Commandes</h2>
+          <div>
+            <div>
+              <h3>Déplacement</h3>
+              <img src="./src/img/deplacement.png" id="startButton" alt="">
+            </div>
+            <div>
+              <h3>Interactions</h3>
+              <img src="./src/img/action.png" id="startButton" alt="">
+            </div>
+            <div>
+              <h3>Caméra/Direction</h3>
+              <img src="./src/img/mouseMove.png" id="startButton" alt="">
+            </div>
+          </div>
+        </div>
+        <div id="phoneKeys" class="hidden">
+          <h2>Commandes</h2>
+          <div>
+            <div>
+              <h3>Déplacement</h3>
+              <img src="./src/img/phoneMove.png" id="startButton" alt="">
+            </div>
+            <div>
+              <h3>Caméra/Direction</h3>
+              <img src="./src/img/phoneCamera.png" id="startButton" alt="">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+  <div id="loadingScreen">
+    <div id="loadingText">
+      <h2 style="color:red;">Bienvenue aventurier !</h2>
+      <p>Vous êtes un aventurier à la recherche d'un artefact rare dans la forêt mystique de Saint Pons. La nuit tombe,
+        et vous suivez la rivière pour maximiser vos chances de réussite. Au loin, une lueur attire votre attention. Un
+        mégalithe mystérieux brille dans l'obscurité, près d'un campement intriguant.</p>
+      <p> En vous approchant, vous découvrez que ce camp appartient à Mannoni Pascal, un développeur web et logiciel
+        spécialisé en back-end. Des panneaux disséminés dans le campement détaillent son profil. Vous trouvez également des easter eggs
+        révélant des anecdotes et des réalisations personnelles de Pascal.
+      </p>
+      <p> Convaincu que ses compétences seront précieuses pour votre quête, vous décidez de suivre les indices laissés
+        dans le campement. Inspiré par le parcours de Pascal, vous vous enfoncez dans la forêt, prêt à découvrir
+        l'artefact et à bénéficier de l'alliance avec ce développeur mystérieux.
+      </p>
+    </div>
+    <div id="loadingProgress">
+      <div id="spinner"></div>
+      <div id="loadingBarContainer">
+        <div id="loadingBar"></div>
+      </div>
+    </div>
+    <img src="./src/img/exploreButton.png" alt="" id="loadingButton">
+  </div>
+  <div id="modalContainer">
+    <div id="topBanner">
+      <button id="fullscreenButton" class="button">Plein écran</button>
+      <a href="./src/pdf/cv.pdf" target="_blank" class="button">Mon CV</a>
+      <p id="EECount"><span id="EENumber">0</span>/5 easter Egg(s)</p>
+      <p id="signCount"><span id="signsNumber">0</span>/4 panneau(x)</p>
+    </div>
+
+    <div id="infoBubble" class="hidden">
+      <p></p>
+    </div>
+    <div id="easterEggs">
+      <img src="./src/img/cross.png" id="EECross">
+      <div id="EEContent"></div>
+    </div>
+    <div id="sign">
+      <img src="./src/img/cross.png" id="cross">
+
+      <div id="Projets" class="signContent">
+        <div>
+          <div>
+            <h2 style="color:red;">Snorri</h2>
+            <h3>Projet personnel</h3>
+            <p>Snorri - Projet personnel - Développement d’un site interne type Linkedin de l’école</p>
+            <p>Symfony, Stimulus, MySQL</p>
+            <a href="https://github.com/Manno-pascal/projet_Snorri" target="_blank">Lien vers Github</a>
+          </div>
+          <div>
+            <div>
+              <h2 style="color:red;">Mimir</h2>
+              <h3>Ecole RI7</h3>
+              <p>Développement d’un site interne de gestion administrative et des ressources pédagogiques de l’école</p>
+              <p>Symfony, Stimulus, MySQL</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <h2 style="color:red;">Application de la zone des paluds</h2>
+            <h3>Ecole RI7</h3>
+            <p>Développement d’une application smartphone de recensement de commerces d’une zone commerciale</p>
+            <p>Symfony, React native, MySQL</p>
+            <a href="https://play.google.com/store/apps/details?id=com.cibprod.les_paluds&hl=ln&pli=1"
+              target="_blank">Lien vers Google
+              play</a>
+          </div>
+          <div>
+            <h2 style="color:red;">Application de mode</h2>
+            <h3>Ecole RI7</h3>
+            <p>Application de mode - Ecole RI7 - Développement d’un collecteur de données</p>
+            <p>Symfony, MySQL</p>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="Parcours" class="signContent">
+        <div>
+          <h2 style="color:red;">Expériences</h2>
+          <h3>Développeur web junior et assistant pédagogique - Ecole RI7 - 2023 à 2024</h3>
+          <ul>
+            <li>Développements d’applications internes (Symfony, Stimulus, Mysql)</li>
+            <li>Enseignements dans l’informatique (algorithmie, back-end)</li>
+            <li>Accompagnement des élèves dans les projets</li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="color:red;">Formations</h2>
+          <h3>Concepteur Développeur d'Applications en alternance</h3>
+          <p>Obtenu - TITRE RNCP DE NIVEAU 6 - Ecole RI7 - 2022 à 2024 - RNCP 31678</p>
+        </div>
+      </div>
+
+
+      <div id="Coordonnées" class="signContent">
+        <div>
+          <h2 style="color:red;">Informations</h2>
+          <p>mannoni.pa@gmail.com</p>
+          <p>Aubagne</p>
+          <p>Reconnu RQTH</p>
+          <div>
+            <a href="https://github.com/Manno-pascal" target="_blank">Github</a>
+          </div>
+          <div>
+            <a href="https://www.linkedin.com/in/pascal-mannoni/" target="_blank">Linkedin</a>
+          </div>
+          <div>
+            <a href="./src/pdf/cv.pdf" target="_blank">Mon CV</a>
+          </div>
+
+        </div>
+        <img src="./src/img/waving.png" alt="">
+      </div>
+      <div id="Skills" class="signContent">
+        <div>
+          <h2 style="color:red;">Skills</h2>
+          <ul>
+            <li>PHP Symfony / Laravel</li>
+            <li>C++</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>MongoDB/MySQL</li>
+            <li>Javascript</li>
+          </ul>
+        </div>
+
+
+        <div>
+          <h2 style="color:red;">Soft skills</h2>
+          <ul>
+            <li>Anglais technique</li>
+            <li>Esprit d'équipe</li>
+            <li>Curieux</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="phoneButtons" class="hidden">
+      <div id="movingButtons">
+        <img id="ArrowUp" class="movingButton" src="./src/img/up.png"></img>
+        <div id="movingSubButtons">
+          <img id="ArrowLeft" class="movingButton" src="./src/img/left.png"></img>
+          <img id="ArrowDown" class="movingButton" src="./src/img/down.png"></img>
+          <img id="ArrowRight" class="movingButton" src="./src/img/right.png"></img>
+        </div>
+        <p>Déplacement</p>
+      </div>
+      <div id="cameraButtons">
+        <div>
+          <img id="left" class="cameraButton" src="./src/img/left.png"></img>
+          <img id="right" class="cameraButton" src="./src/img/right.png"></img>
+        </div>
+        <p>Rotation</p>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <script src="src/script/main.js" type="module"></script>
+</body>
+</html>

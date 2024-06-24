@@ -394,6 +394,22 @@ img {
     user-select: none; 
 }
 
+#easterEggs{
+    width: 100%;
+}
+
+#EEContent{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#EEContent>img,#EEContent>iframe{
+    width: 70vh;
+    height:70vh;
+
+}
+
 
 @media screen and (orientation: portrait) {
     .landscape-message {

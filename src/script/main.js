@@ -121,10 +121,6 @@ function init() {
             map.interestPoints.push(gltf.scene.getObjectByName('Coordonnées'));
             map.interestPoints.push(gltf.scene.getObjectByName('Projets'));
             map.interestPoints.push(gltf.scene.getObjectByName('Parcours'));
-            map.interestPoints.push(gltf.scene.getObjectByName('radio'));
-            map.interestPoints.push(gltf.scene.getObjectByName('phone'));
-            map.interestPoints.push(gltf.scene.getObjectByName('tv'));
-            map.interestPoints.push(gltf.scene.getObjectByName('yolo'));
             let river = gltf.scene.getObjectByName('river');
             config.updateLoadingBar(80)
             const loader = new THREE.TextureLoader();
@@ -175,21 +171,6 @@ function init() {
             character.isMoving = true
         } else if ((event.key === 'e' || event.key === 'Control') && character.nearestObject) {
             environment.interaction(character)
-        } else if (event.key === 'F12') {
-            if (!character.eastersEggsFound.includes("quiz")) {
-                character.eastersEggsFound.push("quiz")
-                let response = prompt("Quel est le meilleur langage de développement pour un backend web ? (Il faut saisir le numéro correspondant à la bonne réponse) 1.Javascript 2.PHP 3.Python 4.Un autre")
-                if (parseInt(response) === 2) {
-                    window.alert("Evidemment! Une personne de gout à ce que je vois !")
-                } else {
-                    window.alert("Bon je vais faire comme si je n'avais rien vu ... Je t'accorde quand même le point de l'easter Egg ... Mais tu as tort")
-                }
-                document.querySelector('#EENumber').innerText = character.eastersEggsFound.length
-                if (character.eastersEggsFound.length === 5) {
-                    soundbox.play("success")
-                    document.querySelector("#EECount").style.color = "green"
-                }
-            }
         }
     });
 

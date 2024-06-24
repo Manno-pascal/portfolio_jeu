@@ -72,24 +72,6 @@ export const environment = {
                     document.querySelector("#EECount").style.color = "green"
                 }
             }
-            switch (characterObject.nearestObject) {
-                case "radio":
-                    soundbox.play("thomas")
-                    break;
-                case "phone":
-                    document.querySelector("#easterEggs").style.display = "flex"
-                    document.querySelector('#EEContent').innerHTML = '<iframe src="https://manno-pascal.github.io/pacman/" frameborder="0"></iframe>'
-                    break;
-                case "tv":
-                    document.querySelector("#easterEggs").style.display = "flex"
-                    document.querySelector('#EEContent').innerHTML = '<iframe src="https://www.youtube.com/embed/SXHMnicI6Pg?si=UFf-BIsGcuf60h1O&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>'
-                    break;
-                case "yolo":
-                    document.querySelector("#easterEggs").style.display = "flex"
-                    document.querySelector('#EEContent').innerHTML = '<img src="./src/img/brendan.png" ></img>'
-                    break;
-
-            }
         }
     }
 };

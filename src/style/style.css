@@ -18,6 +18,27 @@ body {
     margin: 0;
 }
 
+h2{
+    font-size:1.5vw;
+}
+
+h3{
+    font-size:1.2vw;
+}
+
+
+p{
+    font-size:1vw;
+}
+
+a{
+    font-size:1vw;
+}
+
+li{
+    font-size:1vw;
+}
+
 canvas {
     height: 100vh;
     width: 100vw;

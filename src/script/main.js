@@ -49,6 +49,10 @@ document.querySelector("#fullscreenButton").addEventListener('click', () => {
     }
 });
 
+document.querySelector("#copyButton").addEventListener('click', () => {
+    navigator.clipboard.writeText("mannoni.pa@gmail.com")
+});
+
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     document.querySelector('#phoneKeys').classList.remove('hidden')
     document.querySelector('#phoneButtons').classList.remove("hidden")
